@@ -12,11 +12,12 @@ class ProductsTest < ApplicationSystemTestCase
 
   test "should create product" do
     visit products_url
-    click_on "New product"
+    click_on "New Product"
 
     fill_in "Description", with: @product.description
     fill_in "Price", with: @product.price
-    fill_in "Title", with: @product.title
+    fill_in "Title", with: "Updated Title"
+    attach_file "Image", Rails.root.join("test/fixtures/files/rails.png")
     click_on "Create Product"
 
     assert_text "Product was successfully created"
@@ -29,7 +30,8 @@ class ProductsTest < ApplicationSystemTestCase
 
     fill_in "Description", with: @product.description
     fill_in "Price", with: @product.price
-    fill_in "Title", with: @product.title
+    fill_in "Title", with: "Updated Title"
+    attach_file "Image", Rails.root.join("test/fixtures/files/rails.png")
     click_on "Update Product"
 
     assert_text "Product was successfully updated"
